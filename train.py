@@ -98,7 +98,7 @@ class VoxtralDataCollator:
 def load_and_prepare_dataset():
     """Load and prepare dataset for training."""
     dataset_name = "Nash-pAnDiTa/quran_dataset_abdulbasit_clean"
-    dataset_config = "voxpopuli"
+    dataset_config = "default"
     
     print(f"Loading dataset: {dataset_name}/{dataset_config}")
     dataset = load_dataset(dataset_name, dataset_config, split="test")

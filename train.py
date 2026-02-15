@@ -101,7 +101,7 @@ def load_and_prepare_dataset():
     dataset_config = "default"
     
     print(f"Loading dataset: {dataset_name}/{dataset_config}")
-    dataset = load_dataset(dataset_name, dataset_config, split="test")
+    dataset = load_dataset(dataset_name, dataset_config, split="train")
     
     # Cast audio to 16kHz (required for Voxtral)
     dataset = dataset.cast_column("audio", Audio(sampling_rate=16000))

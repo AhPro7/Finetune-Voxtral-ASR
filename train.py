@@ -24,12 +24,12 @@ class VoxtralDataCollator:
           - "audio": raw audio (whatever your processor expects)
           - "text":  transcription string
         """
-        texts  = [f["text"] for f in features]
+        texts  = [f["transcription"] for f in features]
         audios = [f["audio"]["array"] for f in features]
 
         # 1) Build the PROMPT part: [AUDIO]…[AUDIO] <transcribe>
         prompt = self.processor.apply_transcription_request(  # (same method you used)
-            language="en",
+            language="ar",
             model_id=self.model_id if hasattr(self, "model_id") else None,
             audio=audios,
             format=["WAV"] * len(audios),
@@ -97,7 +97,7 @@ class VoxtralDataCollator:
 
 def load_and_prepare_dataset():
     """Load and prepare dataset for training."""
-    dataset_name = "hf-audio/esb-datasets-test-only-sorted"
+    dataset_name = "Nash-pAnDiTa/quran_dataset_abdulbasit_clean"
     dataset_config = "voxpopuli"
     
     print(f"Loading dataset: {dataset_name}/{dataset_config}")
